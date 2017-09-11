@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    </head>
+    <body>
+        <h1>9.html</h1>
+        <p></p>
+
+        <input type="text" id="say-hello" name="say-hello">
+        <button id="send">Send</button>
+
+        <div id="receive-messages">
+
+        </div>
+        <!-- socket.io automatically creates and serves this file for us -->
+        <script src="/socket.io/socket.io.js"></script>
+
+        <script>
+            // this is a namespacing path for socket namespaces
+            var socket = io.connect("/");
+            socket.on("connect", function() {
+                console.log("connected");
+            });
+
+            socket.on("disconnect", function() {
+                console.log("disconnected");
+            });
+
+            socket.on("hello", function(msg) {
+                document.getElementsByTagName("p")[0].innerHTML = msg;
+            });
+
+            var button = document.getElementById("send");
+            button.addEventListener("click", function sendMessage() {
+                var message = document.getElementById("say-hello").value;
+                message = "<em>" + name + ": </em>" + message + "<br>";
+                socket.emit("send-message", message);
+                document.getElementById("receive-messages").innerHTML += message;
+                document.getElementById("say-hello").value = "";
+            });
+
+            socket.on("echo", function(msg) {
+                var div = document.getElementById("receive-messages");
+                div.innerHTML += msg;
+            });
+            var name;
+            window.onload = function() {
+                name = prompt("what is your name?");
+            }
+
+        </script>
+    </body>
+</html>

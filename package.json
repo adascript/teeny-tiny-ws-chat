@@ -1,0 +1,22 @@
+{
+  "name": "teeny-tiny-ws-chat",
+  "version": "0.0.1",
+  "description": "just a teeny tiny chat experiment",
+  "main": "9.server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tbd"
+  },
+  "keywords": [
+    "teeny",
+    "tiny",
+    "web",
+    "sockets",
+    "chat"
+  ],
+  "author": "Carrie Coxwell",
+  "license": "MIT"
+}
