@@ -18,5 +18,12 @@
     "chat"
   ],
   "author": "Carrie Coxwell",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "asynquence": "^0.10.0",
+    "asynquence-contrib": "^0.28.0",
+    "http": "0.0.0",
+    "node-static": "^0.7.9",
+    "socket.io": "^0.9.16"
+  }
 }
